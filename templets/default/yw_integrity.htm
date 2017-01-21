@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.title/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms_yw.css" rel="stylesheet" media="screen" type="text/css" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+</head>
+<body class="channel">
+{dede:include filename="head.htm"/}
+
+<div class="w960 clearfix mt10">
+	<div class="col-65">
+		<div class="newsbox mr10">
+			<div class="wrap">
+			  <ul>
+			    {dede:arclist typeid='23' row='5' titlelen='60' limit='0,5'}
+			        <li class="nb-item">
+			            [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]
+			          <div class="nb-item-cnt left220">
+			            <a href="[field:arcurl/]" class="tit">[field:title/]</a>
+			            <p class="txt">[field:description/]</p>
+			            <a href="[field:arcurl/]" class="more">更多 >></a>
+			          </div>
+			        </li>
+		        {/dede:arclist}
+			  </ul>
+			</div>
+			<div class="tit-logo">{dede:type typeid='23'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+		</div>
+	</div>
+	<div class="col-35">
+		<div class="newslist newslist-nodate">
+			<div class="wrap clearfix">
+				<ul>
+					{dede:arclist typeid='24' row='9' titlelen='60' limit='0,9'}
+		      		  <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span></a> </li>
+			  		{/dede:arclist}
+				</ul>
+				{dede:type typeid='24'}<a href="[field:typelink/]" class="more">MORE >></a>{/dede:type}
+			</div>
+			<div class="tit-logo">{dede:type typeid='24'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+	    </div>
+	    <div class="newslist newslist-nodate mt10">
+			<div class="wrap clearfix">
+				<ul>
+					{dede:arclist typeid='25' row='14' titlelen='60' limit='0,14'}
+		      		  <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span></a> </li>
+			  		{/dede:arclist}
+				</ul>
+				{dede:type typeid='25'}<a href="[field:typelink/]" class="more">MORE >></a>{/dede:type}
+			</div>
+			
+			<div class="tit-logo">{dede:type typeid='25'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+	    </div>
+	</div>
+</div>
+
+{dede:include filename="footer.htm"/}
+</body>
+</html>

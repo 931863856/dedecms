@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.title/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms_yw.css" rel="stylesheet" media="screen" type="text/css" />
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery-1.9.1.min.js"></script>
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+</head>
+</head>
+<body class="downlist">
+{dede:include filename="head.htm"/}
+
+<div class="w960 mt10">
+  <div class="imglist imglist-has-tit">
+    <div class="wrap">
+	    {dede:arclist typeid='39' orderby='pubdate' titlelen='40' limit='0,10'}
+	    <a href='[field:arcurl/]' class='item-20'>
+        [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<div class='imgwrap'><img src='{@me['litpic']}'></div>"); [/field:array]<p class='img-tit'>[field:title/]</p></a>
+		{/dede:arclist}
+	</div>
+    <div class="tit-logo">{dede:type typeid='39'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+  </div>
+</div>
+
+<div class="w960 mt10">
+  <div class="imglist imglist-has-vedio">
+    <div class="wrap">
+     	{dede:arclist typeid='42' orderby='pubdate' titlelen='40' limit='0,3'}
+     	<div class="item-30">
+			[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<img src='{@me['litpic']}'>"); [/field:array]
+			<a href="[field:arcurl/]" class="imgoverlay-play"></a>
+		</div>
+		{/dede:arclist}
+		<!-- <div class="item-30">
+			<img src="{dede:global.cfg_templets_skin/}/images/yw/wh15.png">
+			<a href="" class="imgoverlay-play"></a>
+		</div>
+		<div class="item-30">
+			<img src="{dede:global.cfg_templets_skin/}/images/yw/wh16.png">
+			<a href="" class="imgoverlay-play"></a>
+		</div>
+		<div class="item-30">
+			<img src="{dede:global.cfg_templets_skin/}/images/yw/wh17.png">
+			<a href="" class="imgoverlay-play"></a>
+		</div> -->
+	</div>
+    <div class="tit-logo">{dede:type typeid='42'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+  </div>
+</div>
+
+<div class="w960 mt10">
+  <div class="imglistslider">
+    <div class="wrap">
+		<div class="tempwrap">
+			<ul class="list">
+			{dede:arclist typeid='40' orderby='pubdate' titlelen='40' limit='0,10'}
+		    <li class="item"><a href="[field:arcurl/]"><div class="imgwrap">
+	        [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<img src='{@me['litpic']}'>"); [/field:array]</div><p class='img-tit'>[field:title/]</p></a></li>
+			{/dede:arclist}
+			</ul>
+		</div>
+		<a id="btn-next" onclick="attr.goSlide()"></a>
+	</div>
+    <div class="tit-logo">{dede:type typeid='40'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+  </div>
+</div>
+
+<div class="w960 mt10">
+  <div class="imglist imglist-has-tit">
+    <div class="wrap">
+	    {dede:arclist typeid='41' orderby='pubdate' titlelen='40' limit='0,10'}
+	    <a href='[field:arcurl/]' class='item-20'>
+        [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<div class='imgwrap'><img src='{@me['litpic']}'></div>"); [/field:array]<p class='img-tit'>[field:title/]</p></a>
+		{/dede:arclist}
+	</div>
+    <div class="tit-logo">{dede:type typeid='41'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+  </div>
+</div>
+
+{dede:include filename="footer.htm"/}
+</body>
+<script>
+	var attr = {
+		//ul
+		'ul_dom'       : $('.imglistslider .list'),
+		//li个数
+		'li_num'       : $('.imglistslider .item').size(),
+		//每个li宽度
+		'li_w'         : $('.imglistslider .item').width() + 10,
+		//ul的宽度度
+		'ul_w'         : $('.imglistslider .item').size() * ($('.imglistslider .item').width() + 10),
+		//显示区域的宽度
+		'wrap_w'       : $('.imglistslider .tempwrap').width(),
+		//ul溢出可视区域的宽度
+		'overflow_w'   : $('.imglistslider .item').size() * ($('.imglistslider .item').width() + 10) - $('.imglistslider .tempwrap').width(),
+		//图片列表最多可以点击切换的次数
+		'max_clickNum' : ($('.imglistslider .item').size() * ($('.imglistslider .item').width() + 10) - $('.imglistslider .tempwrap').width())/($('.imglistslider .item').width() + 10),
+		//用来作为goslide的判断,当前滑动为第几次
+		'temp' : ($('.imglistslider .item').size() * ($('.imglistslider .item').width() + 10) - $('.imglistslider .tempwrap').width())/($('.imglistslider .item').width() + 10),
+		//每次滑动的距离
+		'distance'     : $('.imglistslider .item').width() + 10,
+		// 滑动函数 
+		goSlide : function(){
+			var is_ie8 = window.navigator.userAgent.toLowerCase().indexOf('msie 8.0')
+			if(is_ie8 < 0){
+				if(this.temp > 0){
+					this.ul_dom.css({
+						transform : 'translateX('+ -this.distance +'px)'
+					})
+					this.distance = this.distance + this.li_w;
+					this.temp--
+				}else{
+					this.temp = this.max_clickNum;
+					this.distance = this.li_w;
+					this.ul_dom.css({
+						transform : 'translateX(0px)'
+					})
+				}
+			}else{
+				if(this.temp > 0){
+					this.ul_dom.css({
+						left : -this.distance +'px'
+					})
+					this.distance = this.distance + this.li_w;
+					this.temp--
+				}else{
+					this.temp = this.max_clickNum;
+					this.distance = this.li_w;
+					this.ul_dom.css({
+						left : 0
+					})
+				}
+			}
+			
+		}
+	} 
+	$('.imglistslider .list').width(attr.ul_w);
+</script>
+</html>

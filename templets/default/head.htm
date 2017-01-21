@@ -1,0 +1,52 @@
+<header>
+  <div class="header-top ">  
+    <div class="w960 clearfix">  
+      <!-- <div class="userlogin pull-left ta-l"><a class="cfff">用户请登录</a></div> -->
+      <div class="welc pull-left">欢迎访问伊吾县国家税务局!</div>
+      <div class="admlogin pull-left ta-r"><a href="dede/login.php" class="admin cfff">后台登陆</a></div>
+    </div> 
+  </div>
+  <div class="header-banner">
+     <div class="inner w960 clearfix">
+        <div class="search">
+            <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+              <div class="form">
+                 <input type="hidden" name="kwtype" value="0" />
+                 <input name="q" type="text" class="search-keyword" id="search-keyword" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){this.value='';}"  onblur="if(this.value==''){this.value='请输入关键字';}" />
+               <!--   <select name="searchtype" class="search-option" id="search-option">
+                     <option value="title" selected='1'>检索标题</option>
+                     <option value="titlekeyword">智能模糊</option>
+                 </select> -->
+                <button type="submit" class="search-submit">搜索</button>
+              </div>
+              </form>
+              <div class="tags">
+                <ul>
+                  <li>本站热词:</li>
+                  {dede:tag row='3' getall='1' sort='month'}
+                  <li><a href='[field:link/]'>[field:tag /]</a></li>
+                  {/dede:tag}
+                </ul>
+              </div>
+        </div><!-- //search -->
+     </div>
+  </div>
+	<!-- //菜单 -->
+	<div class="header-nav">
+      <div class="w960">
+      	<ul class="clearfix">
+        	<li id="home" class='hover'><a href='{dede:global.cfg_cmsurl/}/'><span><b>首页</b><br>Home</span></a></li>
+        	{dede:channel type='top' row='6' currentstyle="<li class='hover'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
+        	<li><a href='[field:typeurl/]' [field:rel/]><span>[field:typename/]</span></a></li>
+        	{/dede:channel}
+      	</ul>
+      </div>	
+	</div>
+  <script>
+    //判断当前非首页时，删除栏目首页hover
+    var hover_num = document.querySelectorAll('.hover').length;
+    if(hover_num != 1){
+      document.getElementById('home').className = '';
+    }
+  </script>
+</header>

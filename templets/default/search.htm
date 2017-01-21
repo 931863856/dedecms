@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>搜索页_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms_yw.css" rel="stylesheet" media="screen" type="text/css" />
+</head>
+<body class="articlelist" style="min-width:1000px">
+<header>
+  <div class="header-top ">  
+    <div class="w960 clearfix">  
+      <!-- <div class="userlogin pull-left ta-l"><a class="cfff">用户请登录</a></div> -->
+      <div class="welc pull-left">欢迎访问伊吾县国家税务局!</div>
+      <div class="admlogin pull-left ta-r"><a href="/dedecms/dede/login.php" class="admin cfff">后台登陆</a></div>
+    </div> 
+  </div>
+  <div class="header-banner">
+     <div class="top w960 clearfix">
+        <div class="search">
+        <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+          <div class="form">
+             <input type="hidden" name="kwtype" value="0" />
+             <input name="q" type="text" class="search-keyword" id="search-keyword" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){this.value='';}"  onblur="if(this.value==''){this.value='请输入关键字';}" />
+           <!--   <select name="searchtype" class="search-option" id="search-option">
+                 <option value="title" selected='1'>检索标题</option>
+                 <option value="titlekeyword">智能模糊</option>
+             </select> -->
+            <button type="submit" class="search-submit">搜索</button>
+          </div>
+          </form>
+          <div class="tags">
+            <ul>
+             <li>本站热词:</li>
+            {dede:tag row='10' getall='1' sort='month'}
+              <li><a href='[field:link/]'>[field:tag /]</a></li>
+            {/dede:tag}
+            </ul>
+          </div>
+    </div><!-- //search -->
+     </div>
+  </div>
+	
+</header>
+
+<div class="resultbar"><div class="w960">>>搜索 <strong class="fc_03c">{dede:global name='keyword' function='RemoveXSS(@me)'/}</strong> 的结果</div></div>
+<div class="result_content w960">	
+	<div class="sidebar">
+        <h2>相关搜索</h2>
+        <ul>
+            <li>{dede:likewords num='8'/}</li>
+	    </ul>
+		<div class="sidebar_banner"><script src='{dede:global.cfg_cmsurl/}/plus/ad_js.php?aid=16' language='javascript'></script></div>
+    </div>
+		<div class="resultlist">
+			<ul>
+             {dede:list perpage='20'}
+				<li>      				
+					<h3><a href="[field:arcurl/]" target="_blank">[field:title/]</a></h3>
+                    <p>[field:description/]...</p>
+					<span>
+					    <a href="[field:arcurl/]">[field:global.cfg_basehost/][field:arcurl/]</a>
+						<small>分类：</small><a href="[field:typeurl/]" target="_blank">[field:typename/]</a>
+						<small>点击：</small>[field:click/]
+						<small>日期：</small>[field:stime/]
+					</span>
+				</li>
+			{/dede:list}
+			</ul>
+			<div class="fl dede_pages">
+			<ul class="pagelist">
+            	{dede:pagelist listsize='4'/}  
+			</ul>
+		</div><!-- /pages -->
+		</div><!-- /listbox -->
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+</html>

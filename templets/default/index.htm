@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms_yw.css" rel="stylesheet" media="screen" type="text/css" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmspath/}/images/js/j.js" ></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/pic_scroll.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery-1.9.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.SuperSlide.2.1.2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	$(function(){
+		$("a[_for]").mouseover(function(){
+			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+			$(this).addClass("thisclass").blur();
+			$("#"+$(this).attr("_for")).show();
+		});
+		$("a[_for=uc_member]").mouseover();
+		$("a[_for=flink_1]").mouseover();
+	});
+	
+	function CheckLogin(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+</head>
+<body class="index">
+
+{dede:include filename="head.htm"/}
+
+<div class="w960 clearfix mt10">
+  <div class="index-cap-left">
+    <div class="tit-logo">{dede:type typeid='46'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+   
+    <div class="fullSlide">
+      <div class="bd">
+        <ul>
+          {dede:arclist typeid='46' orderby='id' orderway='asc' row='4' titlelen='40'}
+            <li>
+              <a href="[field:arcurl/]">[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<img src='{@me['litpic']}'/>"); [/field:array]</a>
+              <div class="news-tit">[field:title/]</div>
+            </li>
+          {/dede:arclist}
+        </ul>
+      </div>
+      <div class="hd"><ul></ul></div>
+    </div>
+    <script type="text/javascript">
+      jQuery(".fullSlide").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop", vis:"auto", autoPlay:false, autoPage:true, trigger:"click" });
+    </script>
+    
+    <div class="l-tap">
+      <div class="l-tap-item"><a href=""><img src="{dede:global.cfg_templets_skin/}/images/yw/t1.png"><p>公文系统</p></a></div>
+      <div class="l-tap-item"><a href=""><img src="{dede:global.cfg_templets_skin/}/images/yw/t2.png"><p>绩效管理</p></a></div>
+      <div class="l-tap-item"><a href=""><img src="{dede:global.cfg_templets_skin/}/images/yw/t3.png"><p>通讯录</p></a></div>
+      <div class="l-tap-item"><a href=""><img src="{dede:global.cfg_templets_skin/}/images/yw/t4.png"><p>邮箱</p></a></div>
+      <div class="l-tap-item"><a href=""><img src="{dede:global.cfg_templets_skin/}/images/yw/t5.png"><p>运维平台</p></a></div>
+      <div class="l-tap-item"><a href=""><img src="{dede:global.cfg_templets_skin/}/images/yw/t6.png"><p>防伪税控</p></a></div>
+    </div>
+  </div>
+  <div class="index-cap-right">
+    <div class="r-block">
+      <div class="tit-logo">{dede:type typeid='44'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+      <div class="wrap">
+        {dede:arclist typeid='44' orderby='id' orderway='asc' row='1' titlelen='40'}
+        <div class="leader">
+            [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<img src='{@me['litpic']}'/>"); [/field:array]
+            <div class="info">
+              <a href="[field:arcurl/]" class="tit">[field:title/]</a>
+              <a href="[field:arcurl/]" class="more" style="display: block">详细信息 >></a>
+            </div>
+        </div>
+        {/dede:arclist}
+        <ul class="personlist">
+         {dede:arclist typeid='44' row='3' orderby='id' orderway='desc' titlelen='40' limit='0,3'}
+              <li><a href="[field:arcurl/]">[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="r-block">
+      <div class="tit-logo">{dede:type typeid='45'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+      <div class="wrap">
+        <ul class="org">
+          {dede:arclist typeid='45' orderby='id' orderway='asc' row='6' titlelen='40'}
+            <li>
+              <a href="[field:arcurl/]">
+                  [field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<img src='{@me['litpic']}'/>"); [/field:array]
+                  <p>[field:title/]</p>
+              </a>
+            </li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <img src="{dede:global.cfg_templets_skin/}/images/yw/7.png">
+  </div>
+</div>
+
+<div class="index-block-bg1">
+    <div class="fullSlide fs">
+      <div class="bd">
+        <ul>
+            <li>
+              <img src='{dede:global.cfg_templets_skin/}/images/yw/bbg.jpg'>
+            </li>
+             <li>
+              <img src='{dede:global.cfg_templets_skin/}/images/yw/bbg.jpg'>
+            </li>
+        </ul>
+      </div>
+      <div class="hd"><ul></ul></div>
+    </div>
+    <script type="text/javascript">
+      jQuery(".fs").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop", vis:"auto", autoPlay:true, autoPage:true, trigger:"click" });
+    </script>
+</div>
+
+<div class="w960 clearfix mt10">
+  <div class="col-6">
+    <div class="newslist mr10">
+      <div class="wrap">
+        <ul>
+          {dede:arclist typeid='14' row='9' titlelen='60' limit='0,9'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <div class="tit-logo">{dede:type typeid='14'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+      </div>
+    </div>  
+  </div>
+  <div class="col-4">
+    <div class="newslist newslist-c4">
+      <div class="wrap">
+        <ul>
+          {dede:arclist typeid='16' row='9' titlelen='60' limit='0,9'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a> </li>
+          {/dede:arclist}
+        </ul>
+        <div class="tit-logo">{dede:type typeid='16'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<div class="w960 mt10">
+  <div class="image-block">
+    <a href="" class="ib-item mr2"><img src="{dede:global.cfg_templets_skin/}/images/yw/ib1.png"></a>
+    <a href="" class="ib-item mr2"><img src="{dede:global.cfg_templets_skin/}/images/yw/ib2.png"></a>
+    <a href="" class="ib-item"><img src="{dede:global.cfg_templets_skin/}/images/yw/ib3.png"></a>
+  </div>
+</div>
+
+<div class="w960 mt10">
+   <div class="newslist newslist-img-left">
+      <div class="wrap clearfix">
+        <img src="{dede:global.cfg_templets_skin/}/images/yw/v.png">
+        <ul>
+          {dede:arclist typeid='31' row='11' titlelen='200' limit='0,9'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <div class="tit-logo">{dede:type typeid='31'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+      </div>
+    </div>  
+</div>
+
+<div class="w960 clearfix mt10 pd-and-bg">
+  <div class="col-6 pl150">
+    <div class="newslist newslist-nodate mr10">
+      <ul>
+        {dede:arclist typeid='15' row='9' titlelen='120' limit='0,7'}
+            <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span></a></li>
+        {/dede:arclist}
+      </ul>
+      <div class="tit-logo">{dede:type typeid='15'}<a href="[field:typelink/]">[field:typename/]</a>{/dede:type}</div>
+      <div class="tit-sub">重要文件</div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="vedio">
+      <div class="tit">岁月无痕</div>
+      <img src="{dede:global.cfg_templets_skin/}/images/yw/vd.jpg">
+    </div>
+  </div>
+</div>
+
+<div class="index-block-bg2">
+  <div class="w960 clearfix">
+    <div class="col-65 br333">
+      <ul id="news-tap-left" class="news-tap">
+        {dede:channel type='son' typeid='7'  row='5'}
+        <li [field:global name='autoindex' runphp='yes']if(@me==0){@me='class="tap-item on"';}else{@me='class="tap-item"';}[/field:global]><a>[field:typename/]</a></li>
+        {/dede:channel}
+      </ul>
+      <div id="newslist-left" class="newslist mr10">
+        <ul>
+          {dede:arclist typeid='17' titlelen='150' limit='0,6'}
+            <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <ul class="hide">
+          {dede:arclist typeid='19' titlelen='150' limit='0,7'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <ul class="hide">
+          {dede:arclist typeid='22' titlelen='150' limit='0,7'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <ul class="hide">
+          {dede:arclist typeid='21' titlelen='150' limit='0,7'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <ul class="hide">
+          {dede:arclist typeid='18' titlelen='150' limit='0,7'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span><span class="time pull-right ta-r">[[field:pubdate function="GetDateMK(@me)"/]]</span></a></li>
+          {/dede:arclist}
+        </ul>
+      </div>  
+      {dede:type typeid='7'}<a href="[field:typelink/]" class="more">MORE >></a>{/dede:type}
+    </div>
+    <div class="col-35">
+      <ul id="news-tap-right" class="news-tap">
+         <li class="tap-item tap-item-w50 br333 on">{dede:type typeid='32'}<a>[field:typename/]</a> {/dede:type}</li>
+         <li class="tap-item tap-item-w50" >{dede:type typeid='33'}<a>[field:typename/]</a> {/dede:type}</li>
+      </ul>
+      <div id="newslist-right" class="newslist newslist-nodate ml10">
+        <ul>
+          {dede:arclist typeid='32' titlelen='120' limit='0,6'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span></a></li>
+          {/dede:arclist}
+        </ul>
+        <ul class="hide">
+          {dede:arclist typeid='33' titlelen='120' limit='0,6'}
+              <li><a href="[field:arcurl/]" class=""><span class="txt pull-left">[field:title/]</span></a></li>
+          {/dede:arclist}
+        </ul>
+      </div>  
+      {dede:type typeid='9'}<a href="[field:typelink/]" class="more">MORE >></a>{/dede:type}
+    </div>
+  </div>
+</div>
+
+<div class="index-imagebox w960 clearfix mt10 mb10">
+  <div class="col-35"><img src="{dede:global.cfg_templets_skin/}/images/yw/bi1.png" class="ibox-left"></div>
+  <div class="col-65 ibox-mid">
+      <div class="col-6"><img src="{dede:global.cfg_templets_skin/}/images/yw/bi2.png" class="ibox-mid"><img src="{dede:global.cfg_templets_skin/}/images/yw/bi3.png" class="ibox-mid"></div>
+      <div class="col-4"><img src="{dede:global.cfg_templets_skin/}/images/yw/bi4.png" class="ibox-right"></div>
+  </div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+<script>
+  $(function(){
+    $('#news-tap-left .tap-item').click(function(){
+      var idx = $(this).index();
+      $(this).addClass('on').siblings().removeClass('on');
+      $('#newslist-left ul').eq(idx).removeClass('hide').siblings('ul').addClass('hide');
+    });
+
+    $('#news-tap-right .tap-item').click(function(){
+      var idx = $(this).index();
+      $(this).addClass('on').siblings().removeClass('on');
+      $('#newslist-right ul').eq(idx).removeClass('hide').siblings('ul').addClass('hide');
+    });
+  })
+</script>
+</html>
